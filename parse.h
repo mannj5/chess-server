@@ -38,9 +38,3 @@ void free_chess_moves(ChessMoves* moves);
 char next_player_from_fen_string(const char* fen);
 
 #endif
-
-// stalemate position:
-// position fen 7k/8/6Q1/8/8/8/8/K7 b - - 1 1
-
-// checkmate position:
-// position fen R5k1/8/6Q1/8/8/8/8/K7 b - - 1 1

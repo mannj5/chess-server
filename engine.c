@@ -33,7 +33,6 @@ int main(void) {
     }
 
     if (!fork()) {  // child process executes this
-        fprintf(stderr, "stockfish's pid is %ld\n", getpid());
         close(p1[1]);
         close(p2[0]);
         // redirect file descriptors
@@ -75,7 +74,6 @@ int main(void) {
     close(p2[0]);
     close(p1[1]);
     pid_t pid = wait(NULL);
-    fprintf(stderr, "reaped child process %ld\n", pid);
 
     return 0;
 }

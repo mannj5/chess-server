@@ -93,8 +93,6 @@ ChessMoves* read_go_perft_1_output(FILE* stream)
         }
     }
 
-    fprintf(stderr, "read %d moves\n", size);
-
     free(line);
     return cm;
 }
