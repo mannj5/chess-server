@@ -57,17 +57,22 @@ int main(void) {
         buffer[numBytes - 1] = '\0';
 
         if (!strcmp(buffer, "d")) {
+            // get the ASCII board from stockfish
             GameState* state = read_d_output(fout);
             free_game_state(state);
         } else if (!strcmp(buffer, "go perft 1")) {
+            // get the best moves from stockfish
             ChessMoves* moves = read_go_perft_1_output(fout);
             free_chess_moves(moves);
         } else if (!strncmp(buffer, "position", 8)) {
-            // do nothing
+            // send a position command to stockfish,
+            // set the position of the game
+            // do nothing because it returns nothing
         } else {
             numBytes = read(p2[0], buffer, BUFFER_SIZE);
             write(STDOUT_FILENO, buffer, numBytes);
         }
+        printf("successfully parsed stockfish output\n");
     }
 
     fclose(fout);
